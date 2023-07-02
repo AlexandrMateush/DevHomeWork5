@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -14,8 +15,8 @@ public class DatabaseInitService {
         String sqlContent = readFileContent(sqlFile);
 
         try (Connection conn = Database.getInstance().getConnection();
-             Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate(sqlContent);
+             PreparedStatement stmt = conn.prepareStatement(sqlContent)) {
+            stmt.executeUpdate();
             System.out.println("Database initialized successfully.");
         } catch (SQLException e) {
             System.out.println("Error initializing database: " + e.getMessage());
