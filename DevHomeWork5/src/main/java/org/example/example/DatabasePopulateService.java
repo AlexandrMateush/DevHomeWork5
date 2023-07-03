@@ -7,10 +7,11 @@ import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 
 public class DatabasePopulateService {
     public static void main(String[] args) {
+
         String sqlFile = "sql/populate_db.sql";
         String sqlContent = readFileContent(sqlFile);
 
@@ -34,3 +35,4 @@ public class DatabasePopulateService {
         }
     }
 }
+
