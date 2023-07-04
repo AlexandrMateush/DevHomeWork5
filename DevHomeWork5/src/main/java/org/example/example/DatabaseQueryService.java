@@ -11,8 +11,9 @@ import java.util.List;
 public class DatabaseQueryService {
 
     public List<MaxProjectCountClient> findMaxProjectsClient(String name,int projectCount) {
-        String sqlFile = "sql/find_max_projects_client.sql+(?,?)";
-        String sqlContent = readFileContent(sqlFile);
+        String sqlFile = "sql/find_max_projects_client.sql";
+        String placeholders = "(?,?)";
+        String sqlContent = readFileContent(sqlFile+placeholders);
 
         try (Connection conn = Database.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(sqlContent)){
@@ -39,8 +40,9 @@ public class DatabaseQueryService {
     }
 
     public List<LongestProjectDuration> findLongestProjectDuration(String id,int duration) {
-        String sqlFile = "sql/find_longest_project.sql+(?,?)";
-        String sqlContent = readFileContent(sqlFile);
+        String sqlFile = "sql/find_longest_project.sql";
+        String placeholders = "(?,?)";
+        String sqlContent = readFileContent(sqlFile+placeholders);
 
         try (Connection conn = Database.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(sqlContent)){
@@ -67,8 +69,9 @@ public class DatabaseQueryService {
     }
 
     public List<MaxSalaryWorker> findMaxSalaryWorkers(int salary, String name) {
-        String sqlFile = "sql/find_max_salary_worker.sql +(?,?)";
-        String sqlContent = readFileContent(sqlFile);
+        String sqlFile = "sql/find_max_salary_worker.sql";
+        String placeholders = "(?,?)";
+        String sqlContent = readFileContent(sqlFile+placeholders);
 
         try (Connection conn = Database.getInstance().getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sqlContent)) {
@@ -95,8 +98,9 @@ public class DatabaseQueryService {
     }
 
     public List<YoungestEldestWorker> findYoungestEldestWorkers(String type, String name, String birthday) {
-        String sqlFile = "sql/find_youngest_eldest_workers.sql+(?,?,?)";
-        String sqlContent = readFileContent(sqlFile);
+        String sqlFile = "sql/find_youngest_eldest_workers.sql";
+        String placeholders = "(?,?,?)";
+        String sqlContent = readFileContent(sqlFile+placeholders);
 
         try (Connection connection = Database.getInstance().getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sqlContent)) {
@@ -126,8 +130,9 @@ public class DatabaseQueryService {
     }
 
     public List<ProjectPrice> printProjectPrices(String id, int price) {
-        String sqlFile = "sql/print_project_prices.sql +(?,?)";
-        String sqlContent = readFileContent(sqlFile);
+        String sqlFile = "sql/print_project_prices.sql";
+        String placeholders = "(?,?)";
+        String sqlContent = readFileContent(sqlFile+placeholders);
 
         try (Connection connection = Database.getInstance().getConnection();
              PreparedStatement pstmt = connection.prepareStatement(sqlContent)) {
