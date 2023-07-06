@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class Database {
     private static Database instance;
-    private Connection connection;
+    private static Connection connection;
 
     private Database() {
         connect();
@@ -20,7 +20,7 @@ public class Database {
         return instance;
     }
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         return connection;
     }
 

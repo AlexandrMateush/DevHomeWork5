@@ -1,0 +1,6 @@
+ SELECT MIN(BIRTHDAY)
+  FROM worker
+UNION
+    SELECT MAX(BIRTHDAY)
+    FROM worker
+;
